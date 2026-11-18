@@ -1,0 +1,27 @@
+## .NET Core / .NET 10
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+published/
+publish/
+
+## Visual Studio & Rider IDE
+.idea/
+.vs/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.sln.docstates
+*.DotSettings.user
+
+## OS Generated
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## Temporary / build artifacts
+*.tmp
+*.log
+

@@ -1,0 +1,30 @@
+name: Build and Deploy .NET Application
+
+on:
+  push:
+    branches:
+      - main # Se ejecuta automaticamente cuando se suben cambios a la rama principal
+  workflow_dispatch: # Permite ejecucion manual desde GitHub Actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore "Lab11 - AdhelmarFlores.sln"
+
+    - name: Build application
+      run: dotnet build "Lab11 - AdhelmarFlores.sln" --configuration Release --no-restore
+
+    - name: Publish application
+      run: dotnet publish "Lab11 - AdhelmarFlores/Lab11 - AdhelmarFlores.csproj" --configuration Release --output ./published
+
