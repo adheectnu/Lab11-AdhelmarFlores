@@ -25,7 +25,7 @@ internal sealed class CloseTicketCommandHandler : IRequestHandler<CloseTicketCom
         if (ticket == null) return null;
 
         ticket.Status = "CLOSED";
-        ticket.ClosedAt = DateTime.UtcNow;
+        ticket.ClosedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified);
 
         await _ticketRepository.UpdateAsync(ticket);
         await _unitOfWork.CommitAsync();

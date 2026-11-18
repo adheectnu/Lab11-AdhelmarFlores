@@ -29,7 +29,7 @@ internal sealed class CreateTicketCommandHandler : IRequestHandler<CreateTicketC
             Title = req.Title,
             Description = req.Description,
             Status = "OPEN",
-            CreatedAt = DateTime.UtcNow
+            CreatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified)
         };
 
         await _ticketRepository.AddAsync(ticket);

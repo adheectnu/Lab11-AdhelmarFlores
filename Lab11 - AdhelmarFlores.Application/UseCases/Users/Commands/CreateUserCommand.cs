@@ -28,7 +28,7 @@ internal sealed class CreateUserCommandHandler : IRequestHandler<CreateUserComma
             Username = req.Username,
             PasswordHash = req.Password, // Almacenado simple para pruebas directas
             Email = req.Email,
-            CreatedAt = DateTime.UtcNow
+            CreatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified)
         };
 
         await _userRepository.AddAsync(user);

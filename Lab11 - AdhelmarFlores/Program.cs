@@ -2,6 +2,8 @@ using Lab11___AdhelmarFlores.Components;
 using Lab11___AdhelmarFlores.Application;
 using Lab11___AdhelmarFlores.Infrastructure.Configuration;
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMediatR(cfg =>
